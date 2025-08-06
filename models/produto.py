@@ -11,7 +11,6 @@ class Produto(db.Model):
     imagem = db.Column(db.String(200), nullable=True)
     data_cadastro = db.Column(db.DateTime, default=datetime.utcnow)
     
-    # Chave estrangeira para usuario
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
     usuario = db.relationship('Usuario', backref='produtos')
 

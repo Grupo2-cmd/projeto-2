@@ -12,7 +12,6 @@ produto_bp = Blueprint('produto', __name__)
 def site():
     busca = request.args.get('q', '')  # pega o parâmetro 'q' da query string
     if busca:
-        # filtro com LIKE, case insensitive
         produtos = db.session.query(Produto).filter(Produto.nome.ilike(f'%{busca}%')).all()
     else:
         produtos = db.session.query(Produto).all()

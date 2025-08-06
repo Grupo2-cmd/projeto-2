@@ -19,12 +19,10 @@ def chat(produto_id, outro_usuario_id):
     produto = Produto.query.get_or_404(produto_id)
     outro_usuario = Usuario.query.get_or_404(outro_usuario_id)
 
-    # Verificações de segurança
     if current_user.id == outro_usuario.id:
         flash('Você não pode conversar consigo mesmo', 'error')
         return redirect(url_for('main.home'))
 
-    # Verificar permissão - vendedor ou comprador interessado
     if current_user.id != produto.usuario_id and outro_usuario.id != produto.usuario_id:
         flash('Pelo menos um usuário deve ser o vendedor do produto', 'error')
         return redirect(url_for('main.home'))
@@ -45,7 +43,6 @@ def chat(produto_id, outro_usuario_id):
         flash('Mensagem enviada com sucesso!', 'success')
         return redirect(url_for('chat.chat', produto_id=produto_id, outro_usuario_id=outro_usuario_id))
 
-    # Buscar mensagens entre os usuários
     chats = Chat.query.filter(
         and_(
             Chat.produto_id == produto_id,
@@ -56,7 +53,6 @@ def chat(produto_id, outro_usuario_id):
         )
     ).order_by(Chat.data_criacao.asc()).all()
 
-    # Marcar mensagens como lidas
     Chat.query.filter(
         and_(
             Chat.produto_id == produto_id,
@@ -81,7 +77,6 @@ def meus_chats():
         or_(Chat.remetente_id == current_user.id, Chat.destinatario_id == current_user.id)
     ).order_by(desc(Chat.data_criacao)).all()
 
-    # Agrupar conversas por produto e parceiro
     grupos_chat = {}
     for chat in todos_chats:
         outro_usuario_id = chat.destinatario_id if chat.remetente_id == current_user.id else chat.remetente_id

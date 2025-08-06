@@ -15,7 +15,7 @@ class Chat(db.Model):
     data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
     lida = db.Column(db.Boolean, default=False)
 
-    # Relacionamentos
+    
     produto = db.relationship('Produto', backref='chats')
     remetente = db.relationship('Usuario', foreign_keys=[remetente_id], backref='chats_enviados')
     destinatario = db.relationship('Usuario', foreign_keys=[destinatario_id], backref='chats_recebidos')

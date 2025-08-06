@@ -42,6 +42,5 @@ def perfil():
 
         return redirect(url_for('main.perfil'))
 
-    # GET — mostrar produtos do usuário no perfil
     produtos = Produto.query.filter_by(usuario_id=current_user.id).all()
     return render_template('perfil.html', produtos=produtos)

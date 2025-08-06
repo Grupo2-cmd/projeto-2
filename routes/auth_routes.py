@@ -42,12 +42,10 @@ def registrar():
         confirma_senha = form.confirmaSenhaForm.data
         email = form.emailForm.data
 
-        # Verificar se usuário já existe
         if Usuario.query.filter_by(nome=nome).first():
             flash('Nome de usuário já existe.', 'error')
             return render_template('registrar.html', form=form)
 
-        # Criar usuário e salvar no banco
         senha_hash = hashlib.sha256(senha.encode()).hexdigest()
         novo_usuario = Usuario(nome=nome, senha_hash=senha_hash, email=email or None)
 
@@ -60,7 +58,6 @@ def registrar():
             db.session.rollback()
             flash('Erro ao criar conta. Tente novamente.', 'error')
 
-    # GET ou formulário inválido cai aqui:
     return render_template('registrar.html', form=form)
 
 
@@ -79,7 +76,6 @@ def redefinir_senha():
     if form.validate_on_submit():
         nome = form.nomeForm.data
         nova_senha = form.novaSenhaForm.data
-        # A confirmação já é validada pelo EqualTo
 
         usuario = Usuario.query.filter_by(nome=nome).first()
         if not usuario:
