@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Adicionar Produto</title>
-
     <style>
-        /* Estilo geral do corpo da página */
         body {
             background-color: rgb(20, 99, 95);
             font-family: Arial, sans-serif;
@@ -14,8 +12,6 @@
             align-items: center;
             height: 100vh;
         }
-
-        /* Caixa do formulário */
         .form-box {
             background-color: white;
             padding: 30px;
@@ -23,52 +19,29 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
             width: 350px;
         }
-
-<<<<<<< HEAD
-        /* Estilo dos inputs, textarea e labels */
         label {
             display: block;
             margin-top: 15px;
             font-weight: bold;
         }
-
-        input, textarea {
-            width: 100%;
-            margin-top: 5px;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-=======
-        /* Estilo dos inputs e textarea */
         input, textarea {
             width: 100%;
             margin-top: 10px;
             padding: 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
+            box-sizing: border-box;
         }
-
-        /* Estilo do botão */
         button {
-<<<<<<< HEAD
-            margin-top: 20px;
-=======
             margin-top: 15px;
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
             padding: 10px;
             background-color: black;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-<<<<<<< HEAD
             width: 100%;
-=======
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
         }
-
         button:hover {
             background-color: gray;
         }
@@ -76,50 +49,26 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-    <div class="form-box">
-        <h2>Adicionar Produto</h2>
+<div class="form-box">
+    <h2>Adicionar Produto</h2>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('produto.adicionar_produtos') }}">
+        {{ form.hidden_tag() }}
 
-        <form method="POST" enctype="multipart/form-data" action="{{ url_for('produto.adicionar_produtos') }}">
-            {{ form.hidden_tag() }}
+        <label for="nomeForm">{{ form.nomeForm.label.text }}</label>
+        {{ form.nomeForm(size=32) }}
 
-            <label for="nomeForm">{{ form.nomeForm.label.text }}</label>
-            {{ form.nomeForm(size=32) }}
+        <label for="precoForm">{{ form.precoForm.label.text }}</label>
+        {{ form.precoForm() }}
 
-            <label for="precoForm">{{ form.precoForm.label.text }}</label>
-            {{ form.precoForm() }}
+        <label for="descricaoForm">{{ form.descricaoForm.label.text }}</label>
+        {{ form.descricaoForm(rows=4) }}
 
-            <label for="descricaoForm">{{ form.descricaoForm.label.text }}</label>
-            {{ form.descricaoForm(rows=4) }}
+        <label for="imagem">{{ form.imagem.label.text }}</label>
+        {{ form.imagem() }}
 
-            <label for="imagem">{{ form.imagem.label.text }}</label>
-            {{ form.imagem() }}
-
-            {{ form.submit(class_="submit-button") }}
-=======
-    <!-- Formulário de cadastro de produto -->
-    <div class="form-box">
-        <h2>Adicionar Produto</h2>
-
-        <!-- enctype="multipart/form-data" é obrigatório para upload de arquivos -->
-<form method="POST" enctype="multipart/form-data" action="{{ url_for('produto_routes.adicionar_produtos') }}">
-            <!-- Campo para nome do produto -->
-            <input type="text" name="nome" placeholder="Nome do produto" required>
-
-            <!-- Campo para preço com até 2 casas decimais -->
-            <input type="number" step="0.01" name="preco" placeholder="Preço" required>
-
-            <!-- Campo para descrição do produto -->
-            <textarea name="descricao" placeholder="Descrição do produto" required></textarea>
-
-            <!-- Campo de upload da imagem do produto (somente imagens) -->
-            <input type="file" name="imagem" accept="image/*" required>
-
-            <!-- Botão de envio -->
-            <button type="submit">Cadastrar</button>
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-        </form>
-    </div>
+        {{ form.submit(class_="submit-button") }}
+    </form>
+</div>
 
 </body>
 </html>

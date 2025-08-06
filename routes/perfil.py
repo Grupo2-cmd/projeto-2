@@ -4,8 +4,9 @@ from models import Produto
 from database import db
 from flask import Blueprint
 
-
 perfil_bp = Blueprint('perfil', __name__)
+
+
 
 @perfil_bp.route('/perfil', methods=['GET', 'POST'])
 @login_required

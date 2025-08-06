@@ -1,210 +1,218 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-    <title>Cadastro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
 
-    <style>
-        /* Estilo geral da página */
-        body {
-            margin: 0;
-            padding: 0;
-<<<<<<< HEAD
-            background-color: rgb(20, 99, 95);
-=======
-            background-color: rgb(20, 99, 95); /* Cor de fundo */
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-        }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgb(20, 99, 95);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+    }
 
-        /* Faixa superior (barra com o logo) */
-        .faixa-topo {
-            width: 100%;
-            background-color: white;
-<<<<<<< HEAD
-            height: 80px;
-=======
-            height: 80px; /* Altura visual da faixa */
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-            display: flex;
-            align-items: center;
-            padding-left: 0;
-            box-sizing: border-box;
-<<<<<<< HEAD
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-=======
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-        }
+    /* Faixa topo */
+    .faixa-topo {
+      width: 100%;
+      background: white;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-        /* Logo na faixa */
-        .faixa-topo img {
-<<<<<<< HEAD
-            height: 175px;
-=======
-            height: 175px; /* A imagem pode ultrapassar visualmente a faixa */
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-            margin-left: 0;
-        }
+    .faixa-topo img {
+      height: 60px;
+    }
 
-        /* Caixa central de cadastro */
-        .register-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-<<<<<<< HEAD
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-=======
-            box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Sombra ao redor */
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-            text-align: center;
-            margin-top: 40px;
-            width: 100%;
-            max-width: 400px;
-        }
+    /* Caixa de registro */
+    .register-box {
+      background: white;
+      max-width: 400px;
+      width: 90%;
+      margin: 40px 0;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      color: #333;
+      text-align: center;
+    }
 
-        /* Estilos dos campos de entrada */
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    .register-box h1 {
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: rgb(20, 99, 95);
+    }
 
-        /* Botão de cadastro */
-        input[type="submit"] {
-            background-color: rgb(20, 99, 95);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    /* Labels e inputs */
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: rgb(20, 99, 95);
+    }
 
-        input[type="submit"]:hover {
-            background-color: rgb(15, 80, 76);
-        }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
 
-<<<<<<< HEAD
-        /* Estilo das mensagens flash */
-        ul.messages {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 15px;
-        }
-        ul.messages li {
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 4px;
-        }
-        ul.messages li.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        ul.messages li.success {
-            background-color: #d4edda;
-            color: #155724;
-=======
-        /* Exibição de erro (se houver) */
-        .erro {
-            color: red;
-            margin-top: 10px;
-        }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus {
+      outline: none;
+      border-color: rgb(20, 99, 95);
+      box-shadow: 0 0 5px rgb(20, 99, 95, 0.5);
+    }
 
-        /* Links (ex: link para login) */
-        a {
-            color: rgb(20, 99, 95);
-            text-decoration: none;
-        }
+    /* Botão submit */
+    button, input[type="submit"] {
+      width: 100%;
+      padding: 12px 0;
+      background-color: rgb(20, 99, 95);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
 
-        a:hover {
-            text-decoration: underline;
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-        }
-    </style>
+    button:hover, input[type="submit"]:hover {
+      background-color: rgb(15, 80, 76);
+    }
+
+    /* Links */
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    a {
+      color: rgb(20, 99, 95);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mensagens flash */
+    ul.messages {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      text-align: left;
+    }
+
+    ul.messages li {
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    ul.messages li.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    ul.messages li.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    /* Mensagem de erro simples */
+    .erro {
+      margin-top: 15px;
+      color: #721c24;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    /* Responsividade */
+    @media (max-width: 420px) {
+      .register-box {
+        padding: 20px 15px;
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Faixa superior com logo -->
-    <div class="faixa-topo">
-<<<<<<< HEAD
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" />
-=======
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-    </div>
+  <!-- Faixa superior com logo -->
+  <div class="faixa-topo">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" />
+  </div>
 
-    <!-- Formulário de cadastro -->
-    <div class="register-box">
-        <h1>Cadastro</h1>
+  <!-- Caixa de cadastro -->
+  <div class="register-box">
+      <h1>Cadastro</h1>
 
-<<<<<<< HEAD
-       <form method="POST">
-    {{ form.hidden_tag() }}
+      <form method="POST">
+          {{ form.hidden_tag() }}
 
-    <label for="nomeForm">Nome:</label><br />
-    {{ form.nomeForm(size=32) }}<br />
+          <label for="nomeForm">Nome:</label>
+          {{ form.nomeForm(size=32) }}
 
-    <label for="senhaForm">Senha:</label><br />
-    {{ form.senhaForm() }}<br />
+          <label for="senhaForm">Senha:</label>
+          {{ form.senhaForm() }}
 
-    <label for="confirmaSenhaForm">Confirme a senha:</label><br />
-    {{ form.confirmaSenhaForm() }}<br />
+          <label for="confirmaSenhaForm">Confirme a senha:</label>
+          {{ form.confirmaSenhaForm() }}
 
-    <label for="emailForm">Email (opcional):</label><br />
-    {{ form.emailForm(size=32) }}<br />
+          <label for="emailForm">Email (opcional):</label>
+          {{ form.emailForm(size=32) }}
 
-    {{ form.submit() }}
-</form>
+          {{ form.submit() }}
+      </form>
 
+      <p>Já tem conta? <a href="{{ url_for('auth.login') }}">Entrar</a></p>
 
-        <!-- Link para login caso o usuário já tenha conta -->
-        <p>Já tem conta? <a href="{{ url_for('auth.login') }}">Entrar</a></p>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              <ul class="messages">
+                  {% for category, message in messages %}
+                      <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endwith %}
 
-        <!-- Exibição das mensagens flash -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul class="messages">
-                    {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-=======
-        <form method="POST">
-            <label for="nomeForm">Nome:</label><br>
-            <input type="text" name="nomeForm" required><br>
-
-            <label for="senhaForm">Senha:</label><br>
-            <input type="password" name="senhaForm" required><br>
-
-            <input type="submit" value="Cadastrar">
-        </form>
-
-        <!-- Link para login caso o usuário já tenha conta -->
-<!-- Link para login caso o usuário já tenha conta -->
-<p>Já tem conta? <a href="{{ url_for('auth_routes.login') }}">Entrar</a></p>
-
-        <!-- Exibição de mensagens de erro do servidor, se houver -->
-        {% if erro %}
-            <div class="erro">{{ erro }}</div>
-        {% endif %}
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441
-    </div>
+      {% if erro %}
+          <div class="erro">{{ erro }}</div>
+      {% endif %}
+  </div>
 
 </body>
 </html>

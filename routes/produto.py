@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Blueprint, render_template, flash, redirect, url_for
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
@@ -8,6 +7,25 @@ import os
 from .forms import ProdutoForm
 
 produto_bp = Blueprint('produto', __name__)
+
+@produto_bp.route('/')
+def site():
+    busca = request.args.get('q', '')  # pega o parâmetro 'q' da query string
+    if busca:
+        # filtro com LIKE, case insensitive
+        produtos = db.session.query(Produto).filter(Produto.nome.ilike(f'%{busca}%')).all()
+    else:
+        produtos = db.session.query(Produto).all()
+    return render_template('site.html', produtos=produtos, busca=busca)
+
+@produto_bp.route('/buscar')
+def buscar_produtos():
+    busca = request.args.get('q', '')
+    if busca:
+        produtos = db.session.query(Produto).filter(Produto.nome.ilike(f'%{busca}%')).all()
+    else:
+        produtos = []
+    return render_template('buscar.html', produtos=produtos, busca=busca)
 
 @produto_bp.route('/adicionar_produtos', methods=['GET', 'POST'])
 @login_required
@@ -78,7 +96,6 @@ def excluir_produto(id):
         flash('Erro ao excluir produto. Tente novamente.', 'error')
 
     return redirect(url_for('main.home'))
-=======
 import os
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required
@@ -134,4 +151,3 @@ def excluir_produto(id):
         db.session.delete(produto)
         db.session.commit()
     return redirect(url_for('produto_routes.site'))
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441

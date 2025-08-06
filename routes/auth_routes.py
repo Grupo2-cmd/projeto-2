@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -97,7 +96,6 @@ def redefinir_senha():
             flash('Erro ao redefinir senha. Tente novamente.', 'error')
 
     return render_template('redefinir_senha.html', form=form)
-=======
 import hashlib
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
@@ -169,4 +167,3 @@ def redefinir_senha():
         return redirect(url_for('auth_routes.login'))
 
     return render_template('redefinir_senha.html')
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441

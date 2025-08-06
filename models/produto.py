@@ -1,5 +1,4 @@
 from database import db
-<<<<<<< HEAD
 from datetime import datetime
 
 class Produto(db.Model):
@@ -14,17 +13,8 @@ class Produto(db.Model):
     
     # Chave estrangeira para usuario
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
-    
+    usuario = db.relationship('Usuario', backref='produtos')
+
+
     def __repr__(self):
         return f'<Produto {self.nome}>'
-=======
-
-class Produto(db.Model):
-    __tablename__ = 'produtos'  # (opcional, mas recomendado)
-
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
-    descricao = db.Column(db.String(300))
-    preco = db.Column(db.Float, nullable=False)
-    imagem = db.Column(db.String(100))
->>>>>>> 6d72f570dcc41bfdfae37938747ff76c9e16f441

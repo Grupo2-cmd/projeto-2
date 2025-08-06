@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bem-vindo</title>
+    <title>Resultados da Busca</title>
 
     <style>
         body {
             margin: 0;
             background-color: rgb(20, 99, 95);
             font-family: Arial, Helvetica, sans-serif;
+            color: white;
         }
 
         .topo {
@@ -21,6 +22,7 @@
             align-items: center;
             padding: 0 20px 0 0;
             box-sizing: border-box;
+            color: black;
         }
 
         .login-link {
@@ -37,7 +39,16 @@
             background-color: gray;
         }
 
-        /* Estilo da barra de busca */
+        .centralizar {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
         .barra-busca {
             margin: 20px auto;
             max-width: 400px;
@@ -72,6 +83,7 @@
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
+            margin-top: 20px;
         }
 
         .produto {
@@ -81,22 +93,35 @@
             width: 200px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            color: black;
             position: relative;
         }
 
-        .btn-excluir {
-            background-color: #c00;
+        .produto img {
+            max-width: 150px;
+            border-radius: 6px;
+        }
+
+        .msg-sem-resultados {
+            text-align: center;
+            font-size: 20px;
             color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 6px 12px;
-            cursor: pointer;
-            margin-top: 10px;
+            margin-top: 40px;
+        }
+
+        a.voltar {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: bold;
         }
 
-        .btn-excluir:hover {
-            background-color: #a00;
+        a.voltar:hover {
+            background-color: gray;
         }
     </style>
 </head>
@@ -105,7 +130,6 @@
 <!-- Topo com logo e botão de perfil/login -->
 <div class="topo">
     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="height: 175px; margin-left: -10px;">
-
     <div style="display: flex; align-items: center;">
         {% if current_user.is_authenticated %}
             <a href="{{ url_for('perfil.perfil') }}" class="login-link">Meu Perfil</a>
@@ -115,7 +139,7 @@
     </div>
 </div>
 
-<!-- Barra de busca -->
+<!-- Barra de busca para pesquisar de novo -->
 <div class="barra-busca">
     <form method="get" action="{{ url_for('produto.buscar_produtos') }}">
         <input type="text" name="q" placeholder="Buscar produto..." value="{{ busca|default('') }}">
@@ -123,20 +147,25 @@
     </form>
 </div>
 
-<!-- Lista de produtos -->
-<div class="produtos">
+<div class="centralizar">
+    <h2>Resultados para: "{{ busca }}"</h2>
+
     {% if produtos %}
-        {% for produto in produtos %}
-            <div class="produto">
-                <img src="{{ url_for('static', filename=produto.imagem) }}" width="150" alt="{{ produto.nome }}">
-                <h3>{{ produto.nome }}</h3>
-                <p>{{ produto.descricao }}</p>
-                <strong>R$ {{ '%.2f'|format(produto.preco) }}</strong>
-            </div>
-        {% endfor %}
+        <div class="produtos">
+            {% for produto in produtos %}
+                <div class="produto">
+                    <img src="{{ url_for('static', filename=produto.imagem) }}" alt="{{ produto.nome }}">
+                    <h3>{{ produto.nome }}</h3>
+                    <p>{{ produto.descricao }}</p>
+                    <strong>R$ {{ '%.2f'|format(produto.preco) }}</strong>
+                </div>
+            {% endfor %}
+        </div>
     {% else %}
-        <p style="color: white; font-size: 18px; text-align: center; width: 100%;">Nenhum produto encontrado.</p>
+        <p class="msg-sem-resultados">Nenhum produto encontrado.</p>
     {% endif %}
+
+    <a href="{{ url_for('produto.site') }}" class="voltar">Voltar à página inicial</a>
 </div>
 
 </body>
