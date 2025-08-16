@@ -112,46 +112,16 @@
             background-color: rgb(15, 80, 76);
         }
     </style>
-</head>
 <body>
 
-<!-- Topo com logo e botão de logout -->
 <div class="topo">
     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="height: 175px; margin-left: -10px;">
     <a href="{{ url_for('auth.logout') }}" class="login-link">Sair</a>
 </div>
 
-<!-- Conteúdo principal -->
 <div class="conteudo">
     <h1>Olá, {{ current_user.nome }}</h1>
 
-    <h2>Seus Produtos</h2>
-    {% if produtos %}
-    <div class="produtos">
-        {% for produto in produtos %}
-        <div class="produto">
-    <strong>{{ produto.nome }}</strong><br>
-    {{ produto.descricao or "Sem descrição" }}<br>
-    <span>{{ produto.preco_formatado }}</span>
-<form action="{{ url_for('produto.excluir_produto', id=produto.id) }}" method="post">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <button type="submit" class="botao-excluir">Excluir</button>
-</form>
-
-
-
-
-</div>
-        {% endfor %}
-    </div>
-    {% else %}
-        <p>Você ainda não cadastrou produtos.</p>
-    {% endif %}
-
-    <!-- Botão para redirecionar para a página de adicionar produto -->
-    <a href="{{ url_for('produto.adicionar_produtos') }}" class="botao-add">+ Adicionar Produto</a>
-
-    <!-- Mensagens Flash -->
     <div class="mensagens">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -163,6 +133,27 @@
       {% endif %}
     {% endwith %}
     </div>
+
+    <h2>Seus Produtos</h2>
+    {% if produtos %}
+    <div class="produtos">
+        {% for produto in produtos %}
+        <div class="produto">
+            <strong>{{ produto.nome }}</strong><br>
+            {{ produto.descricao or "Sem descrição" }}<br>
+            <span>R$ {{ "%.2f"|format(produto.preco) }}</span>
+            <form action="{{ url_for('produto.excluir_produto', id=produto.id) }}" method="post" style="display:inline;">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="botao-excluir">Excluir</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>Você ainda não cadastrou produtos.</p>
+    {% endif %}
+
+    <a href="{{ url_for('produto.adicionar_produtos') }}" class="botao-add">+ Adicionar Produto</a>
 </div>
 
 </body>

@@ -1,171 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resultados da Busca</title>
-
+    <meta charset="UTF-8">
+    <title>Produtos</title>
     <style>
         body {
-            margin: 0;
             background-color: rgb(20, 99, 95);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             color: white;
-        }
-
-        .topo {
-            background-color: white;
-            height: 80px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px 0 0;
-            box-sizing: border-box;
-            color: black;
-        }
-
-        .login-link {
-            background-color: black;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .login-link:hover {
-            background-color: gray;
-        }
-
-        .centralizar {
-            max-width: 800px;
-            margin: 40px auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
         }
 
-        .barra-busca {
-            margin: 20px auto;
-            max-width: 400px;
-            text-align: center;
-        }
+        h1 { text-align: center; margin-bottom: 30px; }
 
-        .barra-busca input[type="text"] {
-            padding: 8px;
-            width: 250px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        .barra-busca button {
-            padding: 8px 16px;
-            border-radius: 6px;
-            background-color: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .barra-busca button:hover {
-            background-color: gray;
-        }
-
-        .produtos {
+        .produtos-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
-            margin-top: 20px;
+            gap: 20px;
         }
 
-        .produto {
-            background-color: white;
+        .produto-box {
+            background: white;
+            color: black;
             border-radius: 8px;
             padding: 20px;
-            width: 200px;
+            width: 220px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            color: black;
-            position: relative;
         }
 
-        .produto img {
-            max-width: 150px;
-            border-radius: 6px;
-        }
-
-        .msg-sem-resultados {
-            text-align: center;
-            font-size: 20px;
-            color: white;
-            margin-top: 40px;
-        }
-
-        a.voltar {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: white;
-            background-color: black;
-            padding: 10px 20px;
+        .produto-box img {
+            max-width: 100%;
             border-radius: 8px;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        a.voltar:hover {
-            background-color: gray;
-        }
+        .produto-box h3 { margin: 10px 0 5px 0; font-size: 18px; }
+        .produto-box p { font-size: 14px; margin: 5px 0; }
+        .produto-box strong { display: block; margin-top: 10px; font-size: 16px; color: green; }
+
+        .produto-box a { text-decoration: none; color: inherit; }
+        .produto-box a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-<!-- Topo com logo e botão de perfil/login -->
-<div class="topo">
-    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="height: 175px; margin-left: -10px;">
-    <div style="display: flex; align-items: center;">
-        {% if current_user.is_authenticated %}
-            <a href="{{ url_for('perfil.perfil') }}" class="login-link">Meu Perfil</a>
-        {% else %}
-            <a href="{{ url_for('auth.login') }}" class="login-link">Login</a>
-        {% endif %}
-    </div>
-</div>
+<h1>Produtos disponíveis</h1>
 
-<!-- Barra de busca para pesquisar de novo -->
-<div class="barra-busca">
-    <form method="get" action="{{ url_for('produto.buscar_produtos') }}">
-        <input type="text" name="q" placeholder="Buscar produto..." value="{{ busca|default('') }}">
-        <button type="submit">Buscar</button>
-    </form>
-</div>
-
-<div class="centralizar">
-    <h2>Resultados para: "{{ busca }}"</h2>
-
-    {% if produtos %}
-        <div class="produtos">
-            {% for produto in produtos %}
-                <div class="produto">
-                    <img src="{{ url_for('static', filename=produto.imagem) }}" alt="{{ produto.nome }}">
-                    <h3>{{ produto.nome }}</h3>
-                    <p>{{ produto.descricao }}</p>
-                    <strong>R$ {{ '%.2f'|format(produto.preco) }}</strong>
-                </div>
-            {% endfor %}
+<div class="produtos-container">
+    {% for p in produtos %}
+        <div class="produto-box">
+            <a href="{{ url_for('produto.site', id=p.id) }}">
+                <img src="{{ url_for('static', filename=p.imagem or 'img/sem_imagem.png') }}" alt="{{ p.nome }}">
+            </a>
+            <h3><a href="{{ url_for('produto.site', id=p.id) }}">{{ p.nome }}</a></h3>
+            <p>{{ p.descricao }}</p>
+            <strong>R$ {{ "%.2f"|format(p.preco) }}</strong>
         </div>
-    {% else %}
-        <p class="msg-sem-resultados">Nenhum produto encontrado.</p>
-    {% endif %}
-
-    <a href="{{ url_for('produto.site') }}" class="voltar">Voltar à página inicial</a>
+    {% endfor %}
 </div>
 
 </body>
