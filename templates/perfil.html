@@ -82,6 +82,24 @@
             background-color: #a00;
         }
 
+        .chat-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: rgb(20, 99, 95);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .chat-btn:hover {
+            background-color: rgb(15, 80, 76);
+        }
+
         .mensagens {
             margin-top: 20px;
         }
@@ -116,11 +134,19 @@
 
 <div class="topo">
     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="height: 175px; margin-left: -10px;">
-    <a href="{{ url_for('auth.logout') }}" class="login-link">Sair</a>
+    <div> <a href="{{ url_for('chat.meus_chats') }}" class="login-link">Meus Chats</a>
+        
+        <a href="{{ url_for('planos.minha_assinatura') }}" class="login-link">Minha Assinatura</a>
+        <a href="{{ url_for('planos.lista_planos') }}" class="login-link">Ver Planos</a>
+        
+        <a href="{{ url_for('auth.logout') }}" class="login-link">Sair</a>
+    </div>
 </div>
 
 <div class="conteudo">
     <h1>Olá, {{ current_user.nome }}</h1>
+    <p><strong>Email:</strong> {{ current_user.email or 'Não informado' }}</p>
+    <p><strong>Cidade:</strong> {{ current_user.cidade or 'Não informado' }}</p>
 
     <div class="mensagens">
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -146,6 +172,9 @@
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <button type="submit" class="botao-excluir">Excluir</button>
             </form>
+            <a href="{{ url_for('chat.chat', produto_id=produto.id, outro_usuario_id=produto.usuario_id) }}" class="chat-btn">
+                Ver conversas
+            </a>
         </div>
         {% endfor %}
     </div>

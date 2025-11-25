@@ -180,22 +180,20 @@
       <h1>Cadastro</h1>
 
       <form method="POST">
-          {{ form.hidden_tag() }}
+    {{ form.hidden_tag() }}
+    <label for="nomeForm">Nome</label>
+    {{ form.nomeForm() }}
 
-          <label for="nomeForm">Nome:</label>
-          {{ form.nomeForm(size=32) }}
 
-          <label for="senhaForm">Senha:</label>
-          {{ form.senhaForm() }}
+    <label for="senhaForm">Senha</label>
+    {{ form.senhaForm() }}
 
-          <label for="confirmaSenhaForm">Confirme a senha:</label>
-          {{ form.confirmaSenhaForm() }}
+    <label for="cidadeForm">Cidade</label>
+    {{ form.cidadeForm() }}  <!-- NOVO CAMPO -->
 
-          <label for="emailForm">Email (opcional):</label>
-          {{ form.emailForm(size=32) }}
+    {{ form.submit() }}
+</form>
 
-          {{ form.submit() }}
-      </form>
 
       <p>Já tem conta? <a href="{{ url_for('auth.login') }}">Entrar</a></p>
 

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale&feira - Conectando o Vale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-seedling"></i> Vale&feira
+        </div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Produtos</a>
+            <a href="#">Conversas</a>
+            <a href="#">Perfil</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg-blob"></div> <h1>Conectando o Vale do Jequitinhonha</h1>
+        <p>Produtos sustentáveis direto do produtor para sua mesa, com tecnologia e responsabilidade ambiental</p>
+        <div class="hero-buttons">
+            <button class="btn-primary"><i class="fas fa-shopping-basket"></i> Ver Produtos</button>
+            <button class="btn-outline"><i class="fas fa-plus"></i> Cadastrar Produto</button>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="section-title">
+            <i class="fas fa-star" style="color: orange;"></i>
+            <h2>Produtos em Destaque</h2>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-img-container" style="background-color: #fef3c7;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/766/766023.png" alt="Mel">
+                    <span class="img-label">Mel Artesanal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Mel Puro do Jequitinhonha</h3>
+                    <p class="producer"><i class="fas fa-user-circle"></i> Produtor: João das Abelhas</p>
+                    <p class="desc">Mel 100% natural produzido por abelhas nativas da região. Rico em propriedades medicinais.</p>
+                    <div class="tags">
+                        <span><i class="fas fa-leaf"></i> Orgânico</span>
+                        <span><i class="fas fa-medal"></i> Premiado</span>
+                        <span>500g</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="old-price">R$ 37,90</span>
+                        <span class="current-price">R$ 28,50</span>
+                        <span class="discount">-25%</span>
+                    </div>
+                    <button class="btn-card"><i class="fab fa-whatsapp"></i> Conversar com Produtor</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-container" style="background-color: #fffbeb;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2275/2275965.png" alt="Queijo">
+                    <span class="img-label">Queijo Artesanal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Queijo Minas Tradicional</h3>
+                    <p class="producer"><i class="fas fa-user-circle"></i> Produtora: Maria do Leite</p>
+                    <p class="desc">Queijo artesanal produzido com leite fresco de vacas criadas a pasto. Processo tradicional.</p>
+                    <div class="tags">
+                        <span><i class="fas fa-cheese"></i> Leite Fresco</span>
+                        <span>Tradicional</span>
+                        <span>1kg</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="old-price">R$ 38,90</span>
+                        <span class="current-price">R$ 35,90</span>
+                        <span class="discount">-10%</span>
+                    </div>
+                    <button class="btn-card"><i class="fab fa-whatsapp"></i> Conversar com Produtor</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-container" style="background-color: #ecfccb;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909808.png" alt="Vegetais">
+                    <span class="img-label">Vegetais Orgânicos</span>
+                </div>
+                <div class="card-content">
+                    <h3>Cesta de Vegetais Orgânicos</h3>
+                    <p class="producer"><i class="fas fa-user-circle"></i> Produtor: Sítio Verde Vida</p>
+                    <p class="desc">Cesta semanal com variedade de vegetais orgânicos frescos: cenoura, beterraba, e mais.</p>
+                    <div class="tags">
+                        <span><i class="fas fa-seedling"></i> 100% Orgânico</span>
+                        <span>Semanal</span>
+                        <span>Variado</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="old-price">R$ 18,90</span>
+                        <span class="current-price">R$ 15,90</span>
+                        <span class="discount">-15%</span>
+                    </div>
+                    <button class="btn-card"><i class="fab fa-whatsapp"></i> Conversar com Produtor</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="see-all">
+            <button class="btn-outline">Ver Todos os Produtos →</button>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <h2>Por que escolher o Valeefeira?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon-circle"><i class="fas fa-leaf"></i></div>
+                <h3>100% Sustentável</h3>
+                <p>Produtos orgânicos e práticas ambientalmente responsáveis em toda nossa cadeia produtiva.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-circle"><i class="fas fa-handshake"></i></div>
+                <h3>Direto do Produtor</h3>
+                <p>Conectamos você diretamente aos produtores locais, garantindo preços justos e qualidade.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Tecnologia Rural</h3>
+                <p>Inovação tecnológica a serviço da agricultura familiar e do desenvolvimento sustentável.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Vale&feira</h4>
+                <p>Conectando produtores e consumidores através da tecnologia e sustentabilidade.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Conversas</a></li>
+                    <li><a href="#">Cadastrar Produto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> contato@valefeira.com.br</p>
+                <p><i class="fas fa-phone"></i> (38) 3333-4444</p>
+                <p><i class="fas fa-map-marker-alt"></i> Vale do Jequitinhonha, MG</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 Vale&feira. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <style>
+        /* Variáveis de Cores (Baseadas na imagem) */
+:root {
+    --bg-light: #f1f8f3;       /* Fundo geral verde claro */
+    --green-dark: #355e3b;     /* Verde escuro (botões e footer) */
+    --green-text: #2d4a3e;     /* Texto de títulos */
+    --green-accent: #4caf50;   /* Ícones e detalhes */
+    --text-gray: #666;
+    --card-white: #ffffff;
+    --price-red: #ff5252;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--green-text);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--bg-light); /* Transparente/fundo */
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-gray);
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--green-dark);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    color: var(--green-text);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Botões Gerais */
+button {
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--green-dark);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #26422b;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #aaa;
+    color: var(--green-text);
+}
+
+.btn-outline:hover {
+    border-color: var(--green-dark);
+    background-color: rgba(53, 94, 59, 0.05);
+}
+
+/* Produtos em Destaque */
+.products {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 1.5rem;
+    color: var(--green-text);
+}
+
+/* Grid de Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+}
+
+/* Estilo do Card */
+.card {
+    background: var(--card-white);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-container {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.card-img-container img {
+    max-height: 100%;
+    max-width: 80%;
+    object-fit: contain;
+}
+
+.img-label {
+    position: absolute;
+    bottom: 10px;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--green-text);
+}
+
+.producer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    height: 40px; /* Altura fixa para alinhar */
+    overflow: hidden;
+}
+
+/* Tags do Card */
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background-color: #f0fdf4;
+    color: var(--green-dark);
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid #dcfce7;
+}
+
+/* Preço */
+.price-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.current-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green-text);
+}
+
+.discount {
+    background-color: var(--price-red);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.btn-card {
+    width: 100%;
+    background-color: var(--green-dark);
+    color: white;
+    border: none;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.see-all {
+    display: flex;
+    justify-content: center;
+}
+
+/* Por que escolher */
+.why-us {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 60px 5%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.why-us h2 {
+    color: var(--green-text);
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--green-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px auto;
+}
+
+.feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background-color: var(--green-dark);
+    color: white;
+    padding: 60px 5% 20px 5%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-col p, .footer-col a {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    line-height: 2;
+    display: block;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+    </style>
+</body>
+</html>
